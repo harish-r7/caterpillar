@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspection Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('worker-inspecting-truck.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], input[type="datetime-local"], input[type="number"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Inspection Details Form</h2>
+    <form action="/submit-inspection" method="post">
+        <label for="inspector-name">Inspector Name:</label>
+        <input type="text" id="text1" name="inspector-name" required>
+
+        <label for="employee-id">Inspection Employee ID:</label>
+        <input type="text" id="text2" name="employee-id" required>
+
+        <label for="inspection-datetime">Date & Time of Inspection:</label>
+        <input type="datetime-local" id="inspection-datetime" name="inspection-datetime" required>
+
+        <label for="inspection-location">Location of Inspection:</label>
+        <input type="text" id="inspection-location" name="inspection-location" required>
+
+        <label for="geo-coordinates">Geo Coordinates of Inspection (optional):</label>
+        <input type="text" id="geo-coordinates" name="geo-coordinates" placeholder="Latitude, Longitude" required>
+
+        <label for="service-meter-hours">Service Meter Hours (Odometer reading):</label>
+        <input type="number" id="service-meter-hours" name="service-meter-hours" required>
+
+        <input type="submit" value="Submit" onclick="javascript:validate()">
+    </form>
+</div>
+<script type="text/javascript">
+    function validate()
+    {
+        if(   document.getElementById("text1").value == "jashwanth"
+           && document.getElementById("text2").value == "1234" )
+        {
+            
+            location.href="run.html";
+        }
+        else
+        {
+           
+            location.href="fail.html";
+        }
+    }
+    </script>
+</body>
+</html>
